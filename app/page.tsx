@@ -23,7 +23,7 @@ export default function Example() {
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
               Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-              fugiat veniam occaecat.
+              fugiat veniam occaecat
             </p>
             <div className="mt-10 flex items-center gap-x-6">
               <a
