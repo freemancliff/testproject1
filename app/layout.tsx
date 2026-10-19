@@ -2,9 +2,12 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bob Moses Legacy Conference 2026 | Remaking America: The Work Before Us",
+  title: {
+    default: "Bob Moses Legacy Conference",
+    template: "%s | Bob Moses Legacy Conference",
+  },
   description:
-    "The 5th Annual Bob Moses Legacy Conference, October 2–4, 2026 in Montgomery, Alabama, at the Equal Justice Initiative Legacy Sites.",
+    "The Bob Moses Legacy Conference: past conferences, talks, and the next gathering on November 21, 2026 at MIT.",
 };
 
 export const viewport: Viewport = {

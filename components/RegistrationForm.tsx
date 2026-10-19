@@ -90,7 +90,7 @@ export default function RegistrationForm() {
         <div style={{ marginTop: 32 }}>
           <ShareButton className="share-inline-btn">Share This Conference</ShareButton>
         </div>
-        <div style={{ marginTop: 24 }}><Link href="/" style={{ color: "var(--gold-dim)", fontSize: 14 }}>← Back to Conference</Link></div>
+        <div style={{ marginTop: 24 }}><Link href="/2026eji" style={{ color: "var(--gold-dim)", fontSize: 14 }}>← Back to Conference</Link></div>
       </div>
     );
   }

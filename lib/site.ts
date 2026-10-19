@@ -11,6 +11,7 @@ export const SITE = {
   hotelUrl:
     "https://be.synxis.com/?adult=1&arrive=2026-10-02&chain=10237&child=0&currency=USD&depart=2026-10-04&group=261002BMLC&hotel=48509&level=hotel&locale=en-US&productcurrency=USD&rooms=1",
   youtubeId: "2OyrE8G7Ias",
+  channelUrl: "https://www.youtube.com/@BobMosesLegacy",
 } as const;
 
 // Flip to true to reopen registration: re-enables the hero/footer buttons,

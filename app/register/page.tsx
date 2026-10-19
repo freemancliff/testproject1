@@ -4,14 +4,14 @@ import { REGISTRATION_OPEN, SITE } from "@/lib/site";
 import RegistrationForm from "@/components/RegistrationForm";
 
 export const metadata: Metadata = {
-  title: "Register | Bob Moses Legacy Conference 2026",
+  title: "Register (2026 Montgomery)",
 };
 
 export default function RegisterPage() {
   return (
     <div id="page-register">
       <div className="reg-hero">
-        <Link href="/" style={{ fontSize: 13, color: "var(--gold)", display: "inline-block", marginBottom: 16, textDecoration: "none" }}>← Back to Conference</Link>
+        <Link href="/2026eji" style={{ fontSize: 13, color: "var(--gold)", display: "inline-block", marginBottom: 16, textDecoration: "none" }}>← Back to Conference</Link>
         <h1>Register for the {SITE.edition.replace("The ", "")}</h1>
         <p>{SITE.dates} · {SITE.location} · {SITE.venue} · Free to attend</p>
         {!REGISTRATION_OPEN && (

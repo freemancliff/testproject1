@@ -12,7 +12,7 @@ export function generateStaticParams(): Params[] {
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { year } = await params;
-  return { title: `${year} Archive | Bob Moses Legacy Conference` };
+  return { title: `${year} Archive` };
 }
 
 export default async function ArchivePage({ params }: { params: Promise<Params> }) {
@@ -23,7 +23,7 @@ export default async function ArchivePage({ params }: { params: Promise<Params> 
   return (
     <div className="archive-page">
       <div className="archive-hero">
-        <Link className="back-link" href="/">← Back to Conference 2026</Link>
+        <Link className="back-link" href="/">← All Conferences</Link>
         <div className="year-big">{a.year}</div>
         <h2>{a.title}</h2>
         <div className="archive-meta">{a.meta}</div>
