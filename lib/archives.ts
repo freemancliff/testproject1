@@ -266,7 +266,7 @@ export const archives: Archive[] = [
   {
     "year": "2022",
     "title": "Education, Insurgents and Insurgencies",
-    "meta": "April 9–10, 2022 · MIT, Cambridge, MA · Virtual and In-Person · Inaugural Bob Moses Conference",
+    "meta": "April 9–10, 2022 · Virtual Experience · Inaugural Bob Moses Conference",
     "days": [
       {
         "heading": "Day 1 — Saturday, April 9",

@@ -3,8 +3,8 @@ import { REGISTRATION_OPEN } from "@/lib/site";
 
 export default function RegisterButton() {
   return REGISTRATION_OPEN ? (
-    <Link className="btn-primary" href="/register">Register Now</Link>
+    <Link className="btn btn--primary" href="/register">Register Now</Link>
   ) : (
-    <a className="btn-primary is-disabled" aria-disabled="true">Registration Closed</a>
+    <span className="btn btn--disabled" aria-disabled="true">Registration Closed</span>
   );
 }

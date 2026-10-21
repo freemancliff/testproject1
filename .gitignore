@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Full-size photo originals: keep them locally, but only the web-sized copies in
+# public/media/ are published. (Make copies with scripts/optimize_photos.py.)
+/public/images/2022*/
+/public/images/2023MIT/
+/public/images/2024*/
+/public/images/2025BU/
+/public/images/2026EJI/

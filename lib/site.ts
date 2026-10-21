@@ -14,11 +14,12 @@ export const SITE = {
   channelUrl: "https://www.youtube.com/@BobMosesLegacy",
 } as const;
 
-// Flip to true to reopen registration: re-enables the hero/footer buttons,
-// the sticky bar button, and the Mailchimp-backed form on /register.
+// Montgomery 2026 registration (that conference has happened, so this stays false).
+// MIT registration is controlled by MIT_REGISTRATION_OPEN in lib/mit2026.ts.
 export const REGISTRATION_OPEN = false;
 
-// Mailchimp list the registration form posts to (same list as the Wix embed).
+// Mailchimp audience the registration form posts to (the Bob Moses Fund audience).
+// u= and id= are public identifiers from the signup form, safe to keep in the repo.
 export const MAILCHIMP = {
   base: "https://bobmosesfund.us11.list-manage.com/subscribe/post-json?u=b0bc29ba55c50742e570559dc&id=f3b12d815d&f_id=002fc6e3f0",
 };

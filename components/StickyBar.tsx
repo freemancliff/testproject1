@@ -1,16 +1,11 @@
-import Link from "next/link";
-import { REGISTRATION_OPEN } from "@/lib/site";
+import MitRegisterButton from "./MitRegisterButton";
 import ShareButton from "./ShareButton";
 
 export default function StickyBar() {
   return (
-    <div className="sticky-cta-bar" style={{ display: "flex" }}>
-      {REGISTRATION_OPEN ? (
-        <Link className="sticky-register" href="/register">Register Now</Link>
-      ) : (
-        <a className="sticky-register is-disabled" aria-disabled="true">Registration Closed</a>
-      )}
-      <ShareButton className="sticky-share">↗ Share This Conference</ShareButton>
+    <div className="sticky-cta-bar">
+      <MitRegisterButton className="btn--sm" />
+      <ShareButton className="btn btn--ghost btn--sm">↗ Share</ShareButton>
     </div>
   );
 }
