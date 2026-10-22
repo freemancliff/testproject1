@@ -143,9 +143,8 @@ export default function HomePage() {
                   <BrandTitle />
                 </h3>
                 <p className="part-meta">
-                  October 2–4, 2026 · Montgomery, Alabama
-                  <br />
-                  Equal Justice Initiative Legacy Sites
+                  <span className="part-line">October 2–4, 2026 · Montgomery, Alabama</span>
+                  <span className="part-line">Equal Justice Initiative Legacy Sites</span>
                 </p>
                 <div className="btn-row">
                   <Link className="btn btn--primary" href="/2026eji#sessions">
@@ -172,13 +171,10 @@ export default function HomePage() {
                   <BrandTitle />
                 </h3>
                 <p className="part-meta">
-                  Part II at MIT · {mit2026.dateLine} · {mit2026.hours}
-                  <br />
-                  {mit2026.venue}, MIT · {mit2026.city}
-                  <br />
-                  {mit2026.tagline}
-                  <br />
-                  <strong>{mit2026.admission}</strong>
+                  <span className="part-line">Part II at MIT · {mit2026.dateLine} · {mit2026.hours}</span>
+                  <span className="part-line">{mit2026.venue}, MIT · {mit2026.city}</span>
+                  <span className="part-line">{mit2026.tagline}</span>
+                  <span className="part-line"><strong>{mit2026.admission}</strong></span>
                 </p>
                 <div className="btn-row">
                   <MitRegisterButton />

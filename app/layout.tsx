@@ -3,6 +3,7 @@ import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import NoWidows from "@/components/NoWidows";
+import { Analytics } from "@vercel/analytics/next";
 import { SITE_NAME, SITE_URL, SHARE_IMAGE } from "@/lib/seo";
 
 const isPreview = !!process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main">{children}</main>
         <SiteFooter />
         <NoWidows />
+        <Analytics />
       </body>
     </html>
   );

@@ -545,3 +545,41 @@ p, li, blockquote, dd, .lead, .person-bio, .card-text, .timeline .what, .muted, 
 .coming-soon svg { width:40px; height:40px; color:var(--gold); opacity:.8; }
 .media-soon { position:absolute; left:0; right:0; top:calc(50% + 18px); text-align:center; padding:0 16px; font-size:1rem; color:var(--text-soft); letter-spacing:.02em; }
 .media--empty:has(.media-soon) > svg { transform:translate(-50%,-110%); }
+
+/* ══════════════════════════════════════════
+   PHONE POLISH (<= 560px)
+   ══════════════════════════════════════════ */
+.part-line { display:block; }
+@media (max-width:560px) {
+  /* hero titles: sized so each line fits the screen (no 3-line wraps) */
+  .hero h1, .hero h1.hero-h1--wide { font-size:clamp(1.55rem,7.3vw,2.3rem); line-height:1.1; margin-bottom:18px; }
+  .hero .lead { font-size:1.02rem; margin-bottom:26px; }
+  .hero-inner { padding-block:44px 52px; }
+  .hero--sub .hero-inner { padding-bottom:76px; }
+  /* photo credit sits above the info bar instead of over the buttons */
+  .hero-credit, .hero--sub .hero-credit { left:var(--gutter); right:var(--gutter); bottom:44px; text-align:right; font-size:.7rem; }
+  .hero:not(.hero--sub) .hero-credit { bottom:10px; }
+  /* labels: nothing smaller than 12px */
+  .eyebrow { font-size:.82rem; letter-spacing:.12em; }
+  .badge { font-size:.76rem; }
+  .next-card dt, .infobar-item span, .card-kicker, .video-year, .photo-credit, .hero-credit { font-size:.76rem; }
+  .logo-name, .year-card .meta { font-size:.78rem; }
+  .logo-tile .tile-sub { font-size:.68rem; }
+  .site-footer h4 { font-size:.82rem; }
+  .footer-base { font-size:.85rem; }
+  /* section titles and spacing */
+  .section h2 { font-size:clamp(1.55rem,7vw,2.1rem); }
+  .section-head { margin-bottom:26px; }
+  .lead { font-size:1.02rem; line-height:1.65; }
+  .card { padding:22px; }
+  .person-role { font-size:.92rem; }
+  .btn { padding:15px 22px; }
+}
+/* Floating Register / Share bar on phones: keep labels on one line, a little slimmer */
+@media (max-width:560px) {
+  .sticky-cta-bar { padding:8px; gap:8px; bottom:12px; }
+  .sticky-cta-bar .btn { white-space:nowrap; padding:12px 14px; font-size:.78rem; letter-spacing:.05em; }
+  .sticky-cta-bar .btn:first-child { flex:1.5; }
+}
+.coming-soon { width:100%; min-width:0; }
+@media (max-width:700px) { .coming-soon { aspect-ratio:auto !important; min-height:150px; } }

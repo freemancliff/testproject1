@@ -18,7 +18,7 @@ export default function RegisterPage() {
         <div className="container">
           <Link className="back-link" href="/2026mit">← Back to the MIT conference</Link>
           <span className="badge badge--free">Free to attend</span>
-          <h1 style={{ fontSize: "clamp(2rem,4.6vw,3.4rem)", marginBottom: 12 }}>Register for Part II of the 2026 Bob Moses Legacy Conference at MIT</h1>
+          <h1 style={{ fontSize: "clamp(1.6rem,6.2vw,3.4rem)", marginBottom: 12 }}>Register for Part II of the 2026 Bob Moses Legacy Conference at MIT</h1>
           <p className="lead" style={{ marginBottom: 6 }}><strong>{mit2026.brandTitle}</strong></p>
           <p className="lead">{mit2026.dateLine} · {mit2026.hours} · {mit2026.venue}, {mit2026.institution}, {mit2026.city}</p>
           <p className="lead" style={{ marginTop: 6 }}><strong>There is no cost to attend or to register.</strong></p>
