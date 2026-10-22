@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { archives } from "@/lib/archives";
 import { mit2026 } from "@/lib/mit2026";
@@ -15,6 +16,14 @@ import Photo from "@/components/Photo";
 import { findMedia } from "@/lib/media";
 import { CREDIT, ejiHero, ejiDay, homeGallery } from "@/lib/eji-photos";
 import { mitGreatDome } from "@/lib/online-photos";
+
+export const metadata = pageMeta({
+  title: "Bob Moses Legacy Conference",
+  absoluteTitle: true,
+  path: "/",
+  description:
+    "The Bob Moses Legacy Conference: 2026 Part I in Montgomery, Part II at MIT on November 21, plus talks, photos and archives from every past conference.",
+});
 
 export default function HomePage() {
   const heroIsDropped = !!findMedia("home/hero", "any");

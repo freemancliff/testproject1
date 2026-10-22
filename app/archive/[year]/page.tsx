@@ -8,8 +8,11 @@ import VideoGrid from "@/components/VideoGrid";
 import PhotoGallery from "@/components/PhotoGallery";
 import { archivePhotos } from "@/lib/archive-photos";
 import { PLAYLISTS, videosFor, type ConferenceKey } from "@/lib/videos";
+import { pageMeta } from "@/lib/seo";
 
 type Params = { year: string };
+
+const clip = (s: string, n: number) => (s.length <= n ? s : `${s.slice(0, n - 1).trimEnd()}…`);
 
 export function generateStaticParams(): Params[] {
   return archives.map((a) => ({ year: a.year }));
@@ -17,7 +20,14 @@ export function generateStaticParams(): Params[] {
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { year } = await params;
-  return { title: `${year} Archive` };
+  const a = archives.find((x) => x.year === year);
+  return pageMeta({
+    title: `${year} Conference Archive`,
+    path: `/archive/${year}`,
+    description: a
+      ? clip(`${year} Bob Moses Legacy Conference: ${a.title}. ${a.meta.split(" · ").slice(0, 2).join(", ")}.`, 158)
+      : `Agenda, speakers, photos and talks from the ${year} Bob Moses Legacy Conference.`,
+  });
 }
 
 export default async function ArchivePage({ params }: { params: Promise<Params> }) {

@@ -3,14 +3,21 @@ import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import NoWidows from "@/components/NoWidows";
+import { SITE_NAME, SITE_URL, SHARE_IMAGE } from "@/lib/seo";
+
+const isPreview = !!process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Bob Moses Legacy Conference",
     template: "%s | Bob Moses Legacy Conference",
   },
   description:
     "The Bob Moses Legacy Conference: past conferences, talks, 2026 Part I in Montgomery, and Part II on November 21, 2026 at MIT.",
+  openGraph: { siteName: SITE_NAME, type: "website", locale: "en_US", images: [SHARE_IMAGE] },
+  twitter: { card: "summary_large_image", images: [SHARE_IMAGE.url] },
+  ...(isPreview ? { robots: { index: false, follow: false } } : {}),
 };
 
 export const viewport: Viewport = {

@@ -12,15 +12,17 @@ import CreditedPhoto from "@/components/CreditedPhoto";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import { videos } from "@/lib/videos";
 import PhotoGallery from "@/components/PhotoGallery";
+import { pageMeta, partTwoEventJsonLd } from "@/lib/seo";
 import { findMedia } from "@/lib/media";
 import { archivePhotos } from "@/lib/archive-photos";
 import { mitAerial, mitKillianCourt, mitGreatDome } from "@/lib/online-photos";
 
-export const metadata: Metadata = {
-  title: "Remaking America: The Work Before Us, Part II at MIT (Nov 21, 2026)",
+export const metadata: Metadata = pageMeta({
+  title: "Part II at MIT: Remaking America, Nov 21, 2026",
+  path: "/2026mit",
   description:
-    "Part II of the 2026 Bob Moses Legacy Conference, Remaking America: The Work Before Us, celebrates the 45th anniversary of the MacArthur Fellows Program. Saturday, November 21, 2026, Wong Auditorium, Jack C. Tang Center, MIT, Cambridge, Massachusetts.",
-};
+    "Part II of Remaking America: The Work Before Us, celebrating 45 years of the MacArthur Fellows Program. Nov 21, 2026 at MIT in Cambridge, MA. Register today.",
+});
 
 export default function Mit2026Page() {
   const heroIsDropped = !!findMedia("mit/hero", "any");
@@ -32,6 +34,10 @@ export default function Mit2026Page() {
   );
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(partTwoEventJsonLd()) }}
+      />
       <section className="hero hero--sub">
         <div className="hero-bg">
           <MediaSlot

@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MIT_REGISTRATION_OPEN, mit2026 } from "@/lib/mit2026";
 import RegistrationForm from "@/components/RegistrationForm";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Register (2026 Part II at MIT)",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Register for Part II at MIT (Nov 21, 2026)",
+  path: "/register",
+  description:
+    "Register for Part II of the 2026 Bob Moses Legacy Conference at MIT in Cambridge on Saturday, November 21, 2026.",
+});
 
 export default function RegisterPage() {
   return (

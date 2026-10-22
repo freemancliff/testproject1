@@ -11,15 +11,19 @@ import Image from "next/image";
 import SponsorGrid from "@/components/SponsorGrid";
 import CreditedPhoto from "@/components/CreditedPhoto";
 import PhotoGallery from "@/components/PhotoGallery";
+import { pageMeta } from "@/lib/seo";
 import MacArthurBand from "@/components/MacArthurBand";
 import MitRegisterButton from "@/components/MitRegisterButton";
 import VideoGrid from "@/components/VideoGrid";
 import { videosFor, PLAYLISTS } from "@/lib/videos";
 import { CREDIT, ejiAbout, ejiDay, ejiHero, friday, saturday, sunday } from "@/lib/eji-photos";
 
-export const metadata: Metadata = {
-  title: "2026 Part I Montgomery: Remaking America: The Work Before Us",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Part I in Montgomery, Oct 2–4, 2026: Remaking America",
+  path: "/2026eji",
+  description:
+    "Part I of the 2026 Bob Moses Legacy Conference took place October 2–4 in Montgomery, Alabama. Watch the sessions, see the photos, and read about the weekend.",
+});
 
 const AgendaButton = () => (
   <div className="center-row">
