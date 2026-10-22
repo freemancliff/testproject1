@@ -28,6 +28,7 @@ export default function SiteFooter() {
             <li><a href={SITE.channelUrl} target="_blank" rel="noreferrer">YouTube channel</a></li>
             <li><a href={SITE.donateUrl} target="_blank" rel="noreferrer">Donate</a></li>
             <li><Link href="/#watch">Watch the talks</Link></li>
+            <li><Link href="/bookstore">Bookstore</Link></li>
           </ul>
         </div>
       </div>

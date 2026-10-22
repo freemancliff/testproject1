@@ -10,6 +10,7 @@ const LINKS = [
   { href: "/2026mit", label: "2026 Part II · MIT" },
   { href: "/#watch", label: "Watch" },
   { href: "/#archive", label: "Past Conferences" },
+  { href: "/bookstore", label: "Bookstore" },
 ];
 
 export default function SiteHeader() {
