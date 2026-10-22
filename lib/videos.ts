@@ -26,9 +26,9 @@ export const PLAYLISTS: Record<ConferenceKey, string | undefined> = {
   "2026-montgomery": "https://www.youtube.com/playlist?list=PLK3wkexkL8D8",
   "2026-mit": undefined,
   "2025": undefined,
-  "2024": undefined,
+  "2024": "https://www.youtube.com/playlist?list=PLfe6aHzGa9IE",
   "2023": undefined,
-  "2022": undefined,
+  "2022": "https://www.youtube.com/playlist?list=PLXr5sDQOBX64",
 };
 
 export const videos: Video[] = [
@@ -45,9 +45,26 @@ export const videos: Video[] = [
 
   // ── 2026 · MIT (November 21) ── add after the event
   // ── 2025 ──
-  // ── 2024 ──
+  // ── 2024 · 3rd Annual (virtual), listed in program order ──
+  { id: "CgR4Q4f2akE", title: "Opening Remarks", speaker: "Dr. Janet Moses", conference: "2024", minutes: 14 },
+  { id: "JPvSZLiLj9Q", title: "Principles of Reconstruction", speaker: "Dr. Kirsten Mullen", conference: "2024", minutes: 75 },
+  { id: "dGZZUWDSfDY", title: "LBJ, Atlantic City and The Taming of The Civil Rights Movement", speaker: "Dr. Julian E. Zelizer", conference: "2024", minutes: 61 },
+  { id: "aQaDmw1vkPE", title: "Mass Incarceration: The Social Control of “Disposable” Communities", speaker: "Dr. Elizabeth Hinton", conference: "2024", minutes: 60 },
+  { id: "4hLUVog5Wzg", title: "The Carceral Merry Go Round", speaker: "Dr. Laura Kurgan", conference: "2024", minutes: 56 },
+  { id: "GAZz_XHTZ1Q", title: "Invocation", speaker: "2Truth", conference: "2024", minutes: 18 },
+  { id: "Tg0-uTuU7PQ", title: "The Jim Crow Roots of Police Violence", speaker: "Dr. Margaret Burnham", conference: "2024", minutes: 48 },
+  { id: "ManwFlGwwPs", title: "The IOU For The Devastation of Black Life", speaker: "Dr. William Darity Jr.", conference: "2024", minutes: 45 },
+  { id: "BO65OjFn0Ns", title: "The Destiny and Pre-Assignment (DESPA)", speaker: "Dr. Greg Budzban & Dr. Cliff Freeman", conference: "2024", minutes: 5 },
+  { id: "rG-GkpO3OAc", title: "Where Do We Go From Here?", speaker: "Closing Panel Discussion", conference: "2024", minutes: 42 },
+  { id: "cAbTpDTV4do", title: "Go Through It To Get To It", speaker: "Dr. Janet Moses", conference: "2024", minutes: 5 },
+  { id: "kvIGBwBwIBc", title: "Proclamation Presented by the City of Boston", conference: "2024", minutes: 4 },
+  { id: "fIcsSIHWzjo", title: "Recap of the Day", speaker: "Dr. Brian Williams", conference: "2024", minutes: 15 },
   // ── 2023 ──
-  // ── 2022 ──
+  // ── 2022 · Inaugural Bob Moses Legacy Conference (virtual) ──
+  { id: "ortYFJfLFck", title: "Lecture I: Lecture and Moderated Q&A", speaker: "Dr. Nicholas Lemann", conference: "2022", minutes: 68 },
+  { id: "418n-my8Erk", title: "Lecture II: Lecture and Moderated Q&A", speaker: "Dean James Anderson", conference: "2022", minutes: 58 },
+  { id: "PNtBKalhd6M", title: "Lecture III: Lecture and Moderated Q&A", speaker: "Dr. Jarvis Givens", conference: "2022", minutes: 59 },
+  { id: "iNena5uFLUk", title: "Lecture IV: Lecture and Moderated Q&A", speaker: "Dr. Imani Perry", conference: "2022", minutes: 61 },
 ];
 
 export const videosFor = (c: ConferenceKey) => videos.filter((v) => v.conference === c);

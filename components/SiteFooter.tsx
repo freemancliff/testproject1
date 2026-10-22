@@ -17,8 +17,8 @@ export default function SiteFooter() {
         <div>
           <h4>Conferences</h4>
           <ul>
-            <li><Link href="/2026mit">2026 · MIT, Cambridge</Link></li>
-            <li><Link href="/2026eji">2026 · Montgomery</Link></li>
+            <li><Link href="/2026mit">2026 Part II · MIT, Cambridge</Link></li>
+            <li><Link href="/2026eji">2026 Part I · Montgomery</Link></li>
             {archives.map((a) => <li key={a.year}><Link href={`/archive/${a.year}`}>{a.year}</Link></li>)}
           </ul>
         </div>

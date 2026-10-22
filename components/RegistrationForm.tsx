@@ -94,7 +94,7 @@ export default function RegistrationForm() {
       <div className="reg-confirmation" role="status">
         <div className="check-circle">✓</div>
         <h2>You&apos;re Registered!</h2>
-        <p>Thank you for registering for the Bob Moses Legacy Conference at MIT on {mit2026.dateLine}. We&apos;ll send a confirmation email with logistics details as the date approaches. If you don&apos;t see it, check your spam folder.</p>
+        <p>Thank you for registering for Part II of the 2026 Bob Moses Legacy Conference at MIT on {mit2026.dateLine}. We&apos;ll send a confirmation email with logistics details as the date approaches. If you don&apos;t see it, check your spam folder.</p>
         <div className="donate-nudge" style={{ maxWidth: 500, margin: "0 auto" }}>
           <p>Support the conference with a donation — every gift helps make this experience possible.</p>
           {donate}
@@ -129,7 +129,7 @@ export default function RegistrationForm() {
       <Field id="diet" label="Dietary Restrictions" placeholder="Vegetarian, vegan, allergies, etc. (lunch is provided)" />
       <Select id="source" label="How did you hear about the conference?" options={SOURCES} />
       <fieldset className="form-confirm">
-        <legend>Please confirm that all information is correct for my registration for the <strong>Bob Moses Legacy Conference at MIT</strong> on <strong>November 21, 2026</strong>. *</legend>
+        <legend>Please confirm that all information is correct for my registration for <strong>Part II</strong> of the 2026 Bob Moses Legacy Conference at <strong>MIT</strong> on <strong>November 21, 2026</strong>. *</legend>
         <label className="form-radio">
           <input type="radio" name={MIT_EVENT_FIELD.tag} value={MIT_EVENT_FIELD.value} required />
           <span>{MIT_EVENT_FIELD.value}</span>

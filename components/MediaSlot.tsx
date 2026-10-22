@@ -65,7 +65,7 @@ export default function MediaSlot({
     return (
       <div className={cls} style={style}>
         <Image src={fallback.src} alt={fallback.alt} fill sizes={sizes} priority={priority} style={{ objectFit: "cover", objectPosition: position }} />
-        {!fill && creditFallback && CREDIT && <span className="photo-credit">{CREDIT}</span>}
+        {!fill && (fallback.credit || (creditFallback && CREDIT)) && <span className="photo-credit">{fallback.credit || CREDIT}</span>}
       </div>
     );
   }

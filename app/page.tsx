@@ -13,6 +13,7 @@ import CreditedPhoto from "@/components/CreditedPhoto";
 import Photo from "@/components/Photo";
 import { findMedia } from "@/lib/media";
 import { CREDIT, ejiHero, ejiDay, homeGallery } from "@/lib/eji-photos";
+import { mitGreatDome } from "@/lib/online-photos";
 
 export default function HomePage() {
   const heroIsDropped = !!findMedia("home/hero", "any");
@@ -26,18 +27,19 @@ export default function HomePage() {
         <div className="container hero-inner">
           <div>
             <div className="eyebrow">Since 2022</div>
-            <h1>The Bob Moses <em>Legacy Conference</em></h1>
+            <h1 className="hero-h1--wide">The Bob Moses <em>Legacy Conference</em></h1>
             <p className="lead">
               Grounded in the enduring legacy of Bob Moses, who recognized that literacy is a prerequisite for economic and political participation, the conference calls on each generation to confront the truth of history as a necessary step toward transformative change.
             </p>
             <div className="btn-row">
-              <Link className="btn btn--primary" href="/2026mit">See the 2026 Program</Link>
+              <Link className="btn btn--primary" href="/2026mit">See Part II at MIT</Link>
               <a className="btn btn--ghost" href={SITE.channelUrl} target="_blank" rel="noreferrer">Watch the Talks</a>
             </div>
           </div>
           <aside className="next-card" aria-label="Next conference">
             <span className="badge">Coming Up</span>
-            <h2>At MIT</h2>
+            <h2>Part II · At MIT</h2>
+            <p className="card-sub">{mit2026.tagline}</p>
             <dl>
               <div><dt>Date</dt><dd>{mit2026.dateLine}</dd></div>
               <div><dt>Time</dt><dd>{mit2026.hours}</dd></div>
@@ -52,19 +54,55 @@ export default function HomePage() {
         {!heroIsDropped && CREDIT && <div className="hero-credit">{CREDIT}</div>}
       </section>
 
+      <section className="section section--black" id="parts" aria-labelledby="parts-title">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <div className="eyebrow">2026</div>
+            <h2 id="parts-title">The Conference in Two Parts</h2>
+            <p className="lead">The 2026 Bob Moses Legacy Conference unfolds in two parts: Part I in Montgomery, Alabama, and Part II at MIT in Cambridge.</p>
+          </div>
+          <div className="parts-grid">
+            <article className="part-card">
+              <CreditedPhoto photo={ejiDay.sunday} aspect="16/9" sizes="(max-width: 860px) 100vw, 560px" />
+              <div className="part-body">
+                <span className="badge badge--past" style={{ alignSelf: "flex-start" }}>Part I · Complete</span>
+                <h3>Remaking America: The Work Before Us</h3>
+                <p className="part-meta">October 2–4, 2026 · Montgomery, Alabama<br />Equal Justice Initiative Legacy Sites</p>
+                <div className="btn-row">
+                  <Link className="btn btn--primary" href="/2026eji#sessions">Watch the Sessions</Link>
+                  <Link className="btn btn--ghost" href="/2026eji">See Part I</Link>
+                </div>
+              </div>
+            </article>
+            <article className="part-card part-card--next">
+              <Photo photo={mitGreatDome} aspect="16/9" sizes="(max-width: 860px) 100vw, 560px" position="center 30%" />
+              <div className="part-body">
+                <span className="badge" style={{ alignSelf: "flex-start" }}>Part II · Next</span>
+                <h3>At MIT: Celebrating 45 Years of the MacArthur Fellows Program</h3>
+                <p className="part-meta">{mit2026.dateLine} · {mit2026.hours}<br />{mit2026.venue}, MIT · {mit2026.city}</p>
+                <div className="btn-row">
+                  <MitRegisterButton />
+                  <Link className="btn btn--ghost" href="/2026mit">See the Program</Link>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section className="section section--dark" id="featured">
         <div className="container split">
           <MediaSlot base="home/mit-2026" label="Photo for the MIT 2026 conference (MIT, Wong Auditorium, or past attendees)" aspect="4/3" sizes="(max-width: 860px) 100vw, 560px" fallback={{ src: "/media/archive/2023/01-preview.jpg", alt: "Young people standing on stage at the 2023 Bob Moses Conference at the MIT Media Lab as the audience looks on" }} position="center" />
           <div>
-            <div className="eyebrow">November 21, 2026</div>
+            <div className="eyebrow">Part II · November 21, 2026</div>
             <h2>Bob Moses Legacy Conference at MIT</h2>
-            <p className="lead">A full day of conversation and strategy in Cambridge.</p>
+            <p className="lead">Part II celebrates the 45th anniversary of the MacArthur Fellows Program, with a full day of conversation and strategy in Cambridge.</p>
             <ul className="check-list">
-              <li><strong>Welcome</strong> from Rev. Rahsaan Hall and a session with <strong>Rev. Brandon Terry</strong></li>
-              <li>Screening of <strong><em>The Alabama Solution</em></strong></li>
-              <li><strong>MacArthur conversation</strong> with Desmond Meade, Reuben Miller, and Andrea Armstrong</li>
-              <li><strong>Five breakout groups</strong> on organizing and strategy</li>
-              <li><strong>Closing</strong> with Dr. Janet Moses</li>
+              <li><strong>Keynote</strong> from Prof. Brandon Terry</li>
+              <li>Screening of <strong><em>The Alabama Solution</em></strong>, with a Q&amp;A with family members of the incarcerated documentarians</li>
+              <li><strong>MacArthur Fellows Panel</strong> with Desmond Meade and Reuben Jonathan Miller, moderated by Rahsaan Hall</li>
+              <li><strong>Five breakout groups</strong> to learn, listen, and strategize</li>
+              <li>Food, music, art, and camaraderie</li>
             </ul>
             <div className="btn-row">
               <MitRegisterButton />
@@ -111,7 +149,7 @@ export default function HomePage() {
             <Link className="card card--link year-card is-new" href="/2026eji">
               <CreditedPhoto photo={ejiDay.sunday} className="year-thumb" sizes="(max-width: 600px) 100vw, 320px" />
               <div className="year">2026</div>
-              <div className="meta">October 2–4 · Montgomery, AL</div>
+              <div className="meta">Part I · October 2–4 · Montgomery, AL</div>
               <h3>Remaking America: The Work Before Us</h3>
               <span className="go">View Conference →</span>
             </Link>

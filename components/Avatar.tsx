@@ -2,8 +2,8 @@ import { findMedia, initialsOf, slugify } from "@/lib/media";
 
 // Round headshot. Uses public/media/people/<name-slug>.(jpg|png|webp) if present,
 // otherwise `photo` (a path in /public), otherwise the person's initials.
-export default function Avatar({ name, photo }: { name: string; photo?: string }) {
-  const dropped = findMedia(`people/${slugify(name)}`, "image");
+export default function Avatar({ name, photo, slug }: { name: string; photo?: string; slug?: string }) {
+  const dropped = findMedia(`people/${slug ?? slugify(name)}`, "image");
   const src = dropped?.url ?? photo;
   return (
     <div

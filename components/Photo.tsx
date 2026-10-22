@@ -6,6 +6,7 @@ export default function Photo({ photo, aspect, sizes = "(max-width: 900px) 100vw
   return (
     <div className={`media ${className}`.trim()} style={{ aspectRatio: aspect }}>
       <Image src={photo.src} alt={photo.alt} fill sizes={sizes} style={{ objectFit: "cover", objectPosition: position }} />
+      {photo.credit && <span className="photo-credit">{photo.credit}</span>}
     </div>
   );
 }

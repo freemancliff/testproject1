@@ -1,23 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE, REGISTRATION_OPEN } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import { saturdayFellows, sundayFeatured, participants, type Speaker } from "@/lib/speakers";
 import { sponsorshipLevels } from "@/lib/sponsors";
 import { archives } from "@/lib/archives";
-import RegisterButton from "@/components/RegisterButton";
 import StickyBar from "@/components/StickyBar";
 import MediaSlot from "@/components/MediaSlot";
 import Image from "next/image";
 import SponsorGrid from "@/components/SponsorGrid";
 import CreditedPhoto from "@/components/CreditedPhoto";
 import PhotoGallery from "@/components/PhotoGallery";
+import MacArthurBand from "@/components/MacArthurBand";
+import MitRegisterButton from "@/components/MitRegisterButton";
 import VideoGrid from "@/components/VideoGrid";
 import { videosFor, PLAYLISTS } from "@/lib/videos";
 import { CREDIT, ejiAbout, ejiDay, ejiHero, friday, saturday, sunday } from "@/lib/eji-photos";
 
 export const metadata: Metadata = {
-  title: "2026 Montgomery: Remaking America: The Work Before Us",
+  title: "2026 Part I Montgomery: Remaking America: The Work Before Us",
 };
 
 const AgendaButton = () => (
@@ -59,17 +60,16 @@ export default function ConferencePage() {
         <div className="container hero-inner" style={{ gridTemplateColumns: "1fr" }}>
           <div>
             <Link className="back-link" href="/">← All Conferences</Link>
-            <div className="eyebrow">{SITE.edition}</div>
+            <div className="eyebrow">Part I · {SITE.edition}</div>
             <h1>Remaking America: <em>The Work Before Us</em></h1>
             <div className="hero-meta">
               <strong>{SITE.dates}</strong> &nbsp;·&nbsp; {SITE.location}<br />
               {SITE.venue}
             </div>
-            <div className="hero-note">Conference Starts at 3pm on Oct. 2nd</div>
-            {!REGISTRATION_OPEN && <div className="closed-note">Registration Is Now Closed</div>}
+            <div className="hero-note">Part I has concluded. Part II is Saturday, November 21 at MIT.</div>
             <div className="btn-row">
-              <RegisterButton />
-              <a className="btn btn--ghost" href={SITE.donateUrl} target="_blank" rel="noreferrer">Support the Conference</a>
+              <Link className="btn btn--primary" href="/2026mit">See Part II at MIT</Link>
+              <a className="btn btn--ghost" href="#sessions">Watch the Sessions</a>
             </div>
           </div>
         </div>
@@ -91,21 +91,7 @@ export default function ConferencePage() {
         </div>
       </section>
 
-      <div className="mac-band">
-        <div className="container">
-          <div className="mac-logos">
-            <img src="/images/macarthur-supported-by.webp" alt="Supported by MacArthur Foundation" />
-            <img src="/images/macarthur-fellows-45.webp" alt="Defying Boundaries: MacArthur Fellows at 45" />
-          </div>
-          <div>
-            <h2 className="mac-tagline">Defying Boundaries: MacArthur Fellows at 45</h2>
-            <p>
-              This moment calls for creative courage. For 45 years, MacArthur Fellows have expanded the boundaries of possibility by questioning conventions, crossing disciplines, and driving collective progress. Throughout 2026, the Foundation is celebrating the groundbreaking work of the Fellows and inspiring public dialogue through a series of nationwide events and conversations. Learn more at{" "}
-              <a href="https://www.macfound.org/fellows-45" target="_blank" rel="noreferrer">macfound.org/fellows-45</a>
-            </p>
-          </div>
-        </div>
-      </div>
+      <MacArthurBand />
 
       <section className="section section--dark" id="experience">
         <div className="container">
@@ -248,13 +234,13 @@ export default function ConferencePage() {
 
       <section className="section cta-band">
         <div className="container">
-          <h2>Join Us in Montgomery</h2>
+          <h2>Part II Is Next</h2>
           <p>
-            {!REGISTRATION_OPEN && <><strong style={{ color: "#ff8f86" }}>Registration is now closed.</strong>{" "}</>}
-            This conference is free to attend. <strong>Your donation helps make it possible</strong> — supporting travel, programming, and access for all participants.
+            Part I took place October 2–4 in Montgomery. <strong>Join us for Part II on Saturday, November 21 at MIT in Cambridge</strong>, celebrating the 45th anniversary of the MacArthur Fellows Program.
           </p>
           <div className="btn-row">
-            <RegisterButton />
+            <MitRegisterButton />
+            <Link className="btn btn--ghost" href="/2026mit">See Part II</Link>
             <a className="btn btn--ghost" href={SITE.donateUrl} target="_blank" rel="noreferrer">Count Me In — Donate</a>
           </div>
         </div>

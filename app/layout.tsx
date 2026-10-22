@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import NoWidows from "@/components/NoWidows";
 
 export const metadata: Metadata = {
   title: {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Bob Moses Legacy Conference",
   },
   description:
-    "The Bob Moses Legacy Conference: past conferences, talks, and the next gathering on November 21, 2026 at MIT.",
+    "The Bob Moses Legacy Conference: past conferences, talks, 2026 Part I in Montgomery, and Part II on November 21, 2026 at MIT.",
 };
 
 export const viewport: Viewport = {
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <NoWidows />
       </body>
     </html>
   );

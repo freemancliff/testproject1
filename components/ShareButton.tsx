@@ -8,9 +8,9 @@ export default function ShareButton({ className, children }: { className?: strin
   const [copied, setCopied] = useState(false);
 
   async function share() {
-    const msg = `Join us at the Bob Moses Legacy Conference at MIT, ${mit2026.dateLine}. ${mit2026.city}.`;
+    const msg = `Join us for Part II of the 2026 Bob Moses Legacy Conference at MIT, ${mit2026.dateLine}. ${mit2026.city}.`;
     if (navigator.share) {
-      await navigator.share({ title: "Bob Moses Legacy Conference at MIT", text: msg, url: SITE.shareUrl });
+      await navigator.share({ title: "Bob Moses Legacy Conference 2026 Part II at MIT", text: msg, url: SITE.shareUrl });
     } else {
       await navigator.clipboard.writeText(msg);
       setCopied(true);

@@ -7,7 +7,7 @@ import MediaSlot from "@/components/MediaSlot";
 import VideoGrid from "@/components/VideoGrid";
 import PhotoGallery from "@/components/PhotoGallery";
 import { archivePhotos } from "@/lib/archive-photos";
-import { videosFor, type ConferenceKey } from "@/lib/videos";
+import { PLAYLISTS, videosFor, type ConferenceKey } from "@/lib/videos";
 
 type Params = { year: string };
 
@@ -79,6 +79,11 @@ export default async function ArchivePage({ params }: { params: Promise<Params> 
               <h2>Talks from {a.year}</h2>
             </div>
             <VideoGrid items={talks} layout="grid" />
+            {PLAYLISTS[a.year as ConferenceKey] && (
+              <div className="center-row">
+                <a className="btn btn--ghost" href={PLAYLISTS[a.year as ConferenceKey]} target="_blank" rel="noreferrer">Open the Playlist on YouTube</a>
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -100,7 +105,7 @@ export default async function ArchivePage({ params }: { params: Promise<Params> 
       ) : (
         <section className="section section--dark">
           <div className="container split">
-            <MediaSlot base={`archive/${a.year}/video`} kind="video" label={`${a.year} recap video`} aspect="16/9" />
+            <MediaSlot base={`archive/${a.year}/video`} kind="video" label={`${a.year} recap video`} aspect="16/9" optional={talks.length > 0} />
             <div className="gallery" style={{ gridTemplateColumns: "1fr 1fr", gridAutoRows: "clamp(110px,14vw,170px)" }}>
               <MediaSlot base={`archive/${a.year}/photo-1`} label={`${a.year} photo 1`} optional />
               <MediaSlot base={`archive/${a.year}/photo-2`} label={`${a.year} photo 2`} optional />

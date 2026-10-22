@@ -4,7 +4,7 @@
 export const SHOW_CREDIT = false;
 export const CREDIT = SHOW_CREDIT ? "Photo credit: Dee Sanders Photography" : "";
 
-export type Photo = { src: string; alt: string };
+export type Photo = { src: string; alt: string; credit?: string };
 
 const p = (day: 1 | 2 | 3, n: string, alt: string): Photo => ({
   src: `/media/2026-montgomery/day${day}/DSC${n}.jpg`,

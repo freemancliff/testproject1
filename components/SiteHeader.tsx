@@ -7,7 +7,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { SITE } from "@/lib/site";
 
 const LINKS = [
-  { href: "/2026mit", label: "2026 at MIT" },
+  { href: "/2026mit", label: "2026 Part II · MIT" },
   { href: "/#watch", label: "Watch" },
   { href: "/#archive", label: "Past Conferences" },
 ];

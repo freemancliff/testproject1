@@ -453,3 +453,39 @@ a.logo-tile:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,
 .form-confirm legend + .form-radio { clear:both; }
 .form-radio { display:flex; align-items:center; gap:12px; margin-top:8px; cursor:pointer; font-weight:700; color:var(--black); }
 .form-radio input { width:20px; height:20px; accent-color:var(--gold-dim); }
+
+/* Part I / Part II */
+.card-text { color:var(--text-soft); font-size:1rem; line-height:1.7; }
+.trio { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.vibe { list-style:none; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px clamp(18px,4vw,56px); font-family:var(--display); text-transform:uppercase; font-size:clamp(1.4rem,4vw,2.6rem); color:var(--white); }
+.vibe li + li::before { content:'·'; color:var(--gold); margin-right:clamp(18px,4vw,56px); }
+.person-bio { font-size:.92rem; line-height:1.6; color:#555; margin-top:10px; text-align:left; }
+.people-grid--bios { align-items:start; }
+.parts-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,3vw,32px); }
+.part-card { background:var(--off-black); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; }
+.part-card .media { border-radius:0; }
+.part-card--next { border-color:rgba(200,168,78,.6); }
+.part-body { padding:clamp(22px,3vw,34px); display:flex; flex-direction:column; gap:12px; flex:1; }
+.part-body h3 { font-size:clamp(1.3rem,2.4vw,1.8rem); }
+.part-meta { color:var(--text-soft); line-height:1.6; }
+.part-body .btn-row { margin-top:auto; padding-top:10px; }
+.badge--past { background:transparent; color:var(--warm-gray); border:1px solid var(--warm-gray); }
+@media (max-width:860px) { .parts-grid { grid-template-columns:1fr; } }
+.card-sub { color:var(--text-soft); margin:-8px 0 18px; font-size:.95rem; line-height:1.5; }
+.hero-credit { text-shadow:0 1px 4px rgba(0,0,0,.9); color:rgba(255,255,255,.9); }
+.hero--sub .hero-credit { bottom:64px; }
+
+/* ══════════════════════════════════════════
+   LINE BREAKS: no lone words on the last line
+   ══════════════════════════════════════════ */
+/* Titles, names, labels and buttons: spread words evenly across lines */
+h1, h2, h3, h4, .eyebrow, .card-kicker, .badge, .btn, .person-name, .person-role, .infobar-item strong, .logo-name,
+.timeline .what strong, .video-meta h3, .quote-card figcaption, .year-card .meta, .mac-tagline, .pager strong { text-wrap: balance; }
+/* Paragraphs and lists: keep the last line from being a single word */
+p, li, blockquote, dd, .lead, .person-bio, .card-text, .timeline .what, .muted, .part-meta, .hero-meta, .archive-meta, .prose p { text-wrap: pretty; }
+/* A person's name should never break mid-name onto a stranded word */
+.person-name, .chip { overflow-wrap: normal; }
+/* Let "Legacy Conference" stay on one line in the home hero, and give section titles room */
+.hero h1.hero-h1--wide { font-size:clamp(2rem,3.7vw,3.6rem); }
+.section-head { max-width:900px; }
+.section-head--center .lead { max-width:62ch; }
