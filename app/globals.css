@@ -489,3 +489,36 @@ p, li, blockquote, dd, .lead, .person-bio, .card-text, .timeline .what, .muted, 
 .hero h1.hero-h1--wide { font-size:clamp(2rem,3.7vw,3.6rem); }
 .section-head { max-width:900px; }
 .section-head--center .lead { max-width:62ch; }
+
+/* Part II: featured MacArthur Conversation underlay */
+.card-grid--four { grid-template-columns:repeat(2,1fr); }
+@media (max-width:720px) { .card-grid--four { grid-template-columns:1fr; } }
+.card--macarthur { background:#7560A8; border-color:#7560A8; color:#fff; }
+.card--macarthur:hover { border-color:#fff; }
+.card--macarthur .card-kicker { color:#F5F0E8; }
+.card--macarthur h3, .card--macarthur .card-text { color:#fff; }
+.timeline li.is-macarthur { background:#7560A8; border-radius:12px; padding-inline:20px; margin-block:6px; }
+.timeline li.is-macarthur::before { background:#7560A8; border-color:#fff; left:calc(var(--time-w,190px) + 12px + 20px); top:30px; }
+.timeline li.is-macarthur .time { color:#F5F0E8; }
+.timeline li.is-macarthur .what, .timeline li.is-macarthur .what strong { color:#fff; }
+.timeline .what-note { display:block; margin-top:6px; font-size:.95rem; font-style:italic; color:#F5F0E8; }
+@media (max-width:860px) {
+  .timeline li.is-macarthur { padding:16px 16px 16px 40px; margin-left:-6px; }
+  .timeline li.is-macarthur::before { left:14px; top:24px; }
+}
+
+/* "Remaking America:" always on one line; wider home hero panel with a heading that scales to fit it */
+.nowrap { white-space:nowrap; }
+.hero-inner--home { grid-template-columns:1.2fr .8fr; }
+@media (max-width:1000px) { .hero-inner--home { grid-template-columns:1fr; } }
+.hero .next-card { container-type:inline-size; }
+.hero .next-card h2 { font-size:clamp(1.1rem,7.2cqw,1.9rem); line-height:1.15; }
+.hero h1.hero-h1--wide { font-size:clamp(2rem,3.4vw,3.3rem); }
+
+/* Breakout groups, inside "About Part II" right after the MacArthur Conversation */
+.breakout-block { margin-top:clamp(40px,6vw,72px); padding-top:clamp(32px,5vw,56px); border-top:1px solid var(--line); }
+.breakout-head { max-width:760px; margin-bottom:clamp(22px,3vw,32px); }
+.breakout-head h3 { font-size:clamp(1.6rem,3.2vw,2.4rem); margin-bottom:10px; }
+.card-grid--five { grid-template-columns:repeat(3,1fr); }
+@media (max-width:900px) { .card-grid--five { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px) { .card-grid--five { grid-template-columns:1fr; } }

@@ -17,7 +17,7 @@ export default function Quotes() {
       <div className="container">
         <div className="section-head section-head--center">
           <div className="eyebrow">Voices</div>
-          <h2 id="voices">In Their Words</h2>
+          <h2 id="voices">Quotes from attendees</h2>
         </div>
         <div className={`quote-grid ${sample ? "is-sample" : ""}`}>
           {list.map((q, i) => (
