@@ -21,7 +21,7 @@ export const metadata: Metadata = pageMeta({
   title: "Part II at MIT: Remaking America, Nov 21, 2026",
   path: "/2026mit",
   description:
-    "Part II of Remaking America: The Work Before Us, celebrating 45 years of the MacArthur Fellows Program. Nov 21, 2026 at MIT in Cambridge, MA. Register today.",
+    "Part II of Remaking America: The Work Before Us, celebrating 45 years of the MacArthur Fellows Program. Free to attend, Nov 21, 2026 at MIT in Cambridge, MA. Register.",
 });
 
 export default function Mit2026Page() {
@@ -299,9 +299,9 @@ export default function Mit2026Page() {
         <div className="container">
           <h2>Register for Part II</h2>
           <p>
-            Join us Saturday, November 21 at MIT. Your donation helps make this
-            conference possible, supporting programming and access for all
-            participants.
+            <strong>Free to attend.</strong> Join us Saturday, November 21 at MIT.
+            Your donation helps make this conference possible, supporting
+            programming and access for all participants.
           </p>
           <div className="btn-row">
             <MitRegisterButton />

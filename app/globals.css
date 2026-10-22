@@ -525,3 +525,12 @@ p, li, blockquote, dd, .lead, .person-bio, .card-text, .timeline .what, .muted, 
 
 /* Let grid columns shrink to the screen on very narrow phones (stops long titles running off the edge) */
 .hero-inner > *, .split > *, .parts-grid > *, .watch-layout > * { min-width:0; }
+
+/* Free to attend */
+.badge--free { background:var(--gold); color:var(--black); margin-bottom:16px; }
+.free-note { display:flex; gap:12px; align-items:flex-start; margin:0 0 24px; padding:14px 18px; background:#f4ecd2; border:1px solid var(--gold); border-radius:10px; color:var(--charcoal); font-size:1rem; line-height:1.5; }
+.free-note > span:first-child { flex:none; width:24px; height:24px; border-radius:50%; background:var(--gold); color:var(--black); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.9rem; margin-top:1px; }
+.infobar-grid { grid-template-columns:.9fr .8fr 1.7fr; }
+@media (max-width:860px) { .infobar-grid { grid-template-columns:1fr; } }
+.next-card dd strong { color:var(--gold); }
+.badge--free { display:block; width:fit-content; margin:0 0 16px; }

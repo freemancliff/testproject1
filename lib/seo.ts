@@ -66,6 +66,14 @@ export function partTwoEventJsonLd() {
         addressCountry: "US",
       },
     },
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `${SITE_URL}/register`,
+    },
     organizer: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   };
 }

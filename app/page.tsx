@@ -91,6 +91,12 @@ export default function HomePage() {
                 <dt>Place</dt>
                 <dd>{mit2026.place}</dd>
               </div>
+              <div>
+                <dt>Admission</dt>
+                <dd>
+                  <strong>{mit2026.admission}</strong>
+                </dd>
+              </div>
             </dl>
             <div className="btn-row" style={{ flexDirection: "column" }}>
               <MitRegisterButton />
@@ -171,6 +177,8 @@ export default function HomePage() {
                   {mit2026.venue}, MIT · {mit2026.city}
                   <br />
                   {mit2026.tagline}
+                  <br />
+                  <strong>{mit2026.admission}</strong>
                 </p>
                 <div className="btn-row">
                   <MitRegisterButton />

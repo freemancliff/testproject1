@@ -9,6 +9,7 @@ export const mit2026 = {
   address: "2 Amherst Street, Cambridge, MA 02139",
   place: "Wong Auditorium, Jack C. Tang Center (E51), MIT · Cambridge, Massachusetts",
   partLabel: "Part II",
+  admission: "Free to attend",
   brandTitle: "Remaking America: The Work Before Us",
   tagline: "Celebrating the 45th Anniversary of the MacArthur Fellows Program",
 };

@@ -109,6 +109,10 @@ export default function RegistrationForm() {
 
   return (
     <form className="reg-form-wrap" onSubmit={submit} noValidate>
+      <div className="free-note" role="note">
+        <span aria-hidden="true">✓</span>
+        <span><strong>Free to attend.</strong> There is no cost to register, and no payment is needed.</span>
+      </div>
       <h2>Your Information</h2>
       <div className="form-row">
         <Field id="fname" label="First Name" placeholder="First name" required autoComplete="given-name" />
@@ -138,10 +142,10 @@ export default function RegistrationForm() {
       <div className="form-note">* Required fields. Your information will be used solely for conference planning and communication.</div>
       {error && <div className="form-error" role="alert">{error}</div>}
       <button className="form-submit" type="submit" disabled={!MIT_REGISTRATION_OPEN || busy} aria-disabled={!MIT_REGISTRATION_OPEN || busy}>
-        {!MIT_REGISTRATION_OPEN ? "Registration Opening Soon" : busy ? "Registering…" : "Register"}
+        {!MIT_REGISTRATION_OPEN ? "Registration Opening Soon" : busy ? "Registering…" : "Register (Free)"}
       </button>
       <div className="donate-nudge">
-        <p>Your donation helps make this conference possible.</p>
+        <p>This conference is free to attend. <strong>Your donation helps make it possible.</strong></p>
         {donate}
       </div>
     </form>
