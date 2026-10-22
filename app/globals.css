@@ -522,3 +522,6 @@ p, li, blockquote, dd, .lead, .person-bio, .card-text, .timeline .what, .muted, 
 .card-grid--five { grid-template-columns:repeat(3,1fr); }
 @media (max-width:900px) { .card-grid--five { grid-template-columns:repeat(2,1fr); } }
 @media (max-width:560px) { .card-grid--five { grid-template-columns:1fr; } }
+
+/* Let grid columns shrink to the screen on very narrow phones (stops long titles running off the edge) */
+.hero-inner > *, .split > *, .parts-grid > *, .watch-layout > * { min-width:0; }
