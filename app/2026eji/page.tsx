@@ -25,12 +25,6 @@ export const metadata: Metadata = pageMeta({
     "Part I of the 2026 Bob Moses Legacy Conference took place October 2–4 in Montgomery, Alabama. Watch the sessions, see the photos, and read about the weekend.",
 });
 
-const AgendaButton = () => (
-  <div className="center-row">
-    <a className="btn btn--primary" href={SITE.agendaUrl} target="_blank" rel="noreferrer">View Conference Agenda</a>
-  </div>
-);
-
 function Person({ name, lines, photo, initials, gradient, role }: { name: string; lines?: string[]; photo?: string; initials?: string; gradient?: string; role?: string }) {
   return (
     <div className="person">
@@ -141,7 +135,6 @@ export default function ConferencePage() {
               </ul>
             </article>
           </div>
-          <AgendaButton />
         </div>
       </section>
 
@@ -153,7 +146,7 @@ export default function ConferencePage() {
               <h2 id="sessions-title">Sessions from Montgomery</h2>
               <p className="lead">Recordings of the 5th Annual Bob Moses Legacy Conference: plenaries, the keynote, and reflections from the weekend.</p>
             </div>
-            <VideoGrid items={videosFor("2026-montgomery")} layout="grid" />
+            <VideoGrid items={videosFor("2026-montgomery")} />
             {PLAYLISTS["2026-montgomery"] && (
               <div className="center-row">
                 <a className="btn btn--ghost" href={PLAYLISTS["2026-montgomery"]} target="_blank" rel="noreferrer">Open the Playlist on YouTube</a>
@@ -178,7 +171,7 @@ export default function ConferencePage() {
             ]}
           />
           <div className="recap-video">
-            <MediaSlot base="eji/recap-video" kind="video" label="Montgomery 2026 recap or highlights video" aspect="16/9" optional />
+            <MediaSlot base="eji/recap-video" kind="video" label="Montgomery 2026 recap or highlights video" aspect="16/9" soon="Recap video" />
           </div>
         </div>
       </section>
@@ -217,7 +210,6 @@ export default function ConferencePage() {
             ))}
           </div>
           <p className="muted" style={{ marginTop: 28, fontStyle: "italic" }}>Additional speakers and workshop leaders to be announced.</p>
-          <AgendaButton />
         </div>
       </section>
 
@@ -232,7 +224,7 @@ export default function ConferencePage() {
                 <strong><a href={SITE.hotelUrl} target="_blank" rel="noreferrer" style={{ color: "var(--gold)", textDecoration: "underline" }}>261002BMLC</a></strong> when booking.</p>
             </div>
           </div>
-          <MediaSlot base="eji/hotel" label="Elevation Hotel or Montgomery skyline" aspect="3/2" />
+          <MediaSlot base="eji/hotel" label="Elevation Hotel or Montgomery skyline" aspect="3/2" soon="Hotel photo" />
         </div>
       </section>
 

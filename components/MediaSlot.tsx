@@ -23,6 +23,8 @@ type Props = {
   mode?: "player" | "background";
   /** In production, render nothing when no file exists (instead of a blank tile) */
   optional?: boolean;
+  /** Short subject shown as "[subject] coming soon" while the file is missing, e.g. "Hotel photo" */
+  soon?: string;
   /** next/image sizes hint */
   sizes?: string;
   priority?: boolean;
@@ -35,7 +37,7 @@ type Props = {
 };
 
 export default function MediaSlot({
-  base, kind = "image", label, alt, aspect, fill, mode = "player", optional, sizes = "(max-width: 900px) 100vw, 600px", priority, fallback, creditFallback, position, className = "",
+  base, kind = "image", label, alt, aspect, fill, mode = "player", optional, sizes = "(max-width: 900px) 100vw, 600px", priority, fallback, creditFallback, position, soon, className = "",
 }: Props) {
   const found = findMedia(base, kind);
   const dev = process.env.NODE_ENV !== "production";
@@ -70,11 +72,12 @@ export default function MediaSlot({
     );
   }
 
-  if (!dev && optional) return null;
+  if (!dev && optional && !soon) return null;
   const Icon = kind === "video" ? PlayCircleIcon : PhotoIcon;
   return (
     <div className={`${cls} media--empty`} style={style} role="img" aria-label={label}>
       <Icon aria-hidden="true" />
+      {soon && <div className="media-soon">{soon} coming soon</div>}
       {dev && (
         <div className="media-hint">
           <strong>{label}</strong>

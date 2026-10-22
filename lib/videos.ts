@@ -7,7 +7,7 @@
 // conference: which conference the talk belongs to (see CONFERENCES below).
 //   - Archive pages (/archive/2025 etc.) automatically show talks tagged with that year.
 //   - /2026eji shows every "2026-montgomery" talk.
-//   - home: true  puts a talk in the home page's "Watch" section (first one is the large feature).
+//   - home: true  puts a talk in the home page's "Watch" section (all videos show at the same size).
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type ConferenceKey = "2026-montgomery" | "2026-mit" | "2025" | "2024" | "2023" | "2022";
@@ -33,11 +33,11 @@ export const PLAYLISTS: Record<ConferenceKey, string | undefined> = {
 
 export const videos: Video[] = [
   // ── 2026 · Montgomery (5th Annual) ──
-  { id: "MNkRbY5aqQA", title: "Welcome: 5th Annual Bob Moses Legacy Conference", speaker: "Benjamin Moynihan", conference: "2026-montgomery", minutes: 6, home: true },
+  { id: "MNkRbY5aqQA", title: "Welcome: 5th Annual Bob Moses Legacy Conference", speaker: "Benjamin Moynihan", conference: "2026-montgomery", minutes: 6 },
   { id: "zQIlyK_7w0Y", title: "US Steel Pratt Convict Cemetery", speaker: "Dr. Janet Moses", conference: "2026-montgomery", minutes: 3 },
-  { id: "12SawChyMw8", title: "American Massacres", speaker: "Dr. Kirsten Mullen", conference: "2026-montgomery", minutes: 24 },
+  { id: "12SawChyMw8", title: "American Massacres", speaker: "Dr. Kirsten Mullen", conference: "2026-montgomery", minutes: 24, home: true },
   { id: "VsbhzIfg-aw", title: "Reparations: Redress for American Massacres", speaker: "Dr. William Darity Jr.", conference: "2026-montgomery", minutes: 17, home: true },
-  { id: "LLZwwJTUpxk", title: "Juvenile Injustice and Reparations", speaker: "Dr. Tasseli McKay", conference: "2026-montgomery", minutes: 15 },
+  { id: "LLZwwJTUpxk", title: "Juvenile Injustice and Reparations", speaker: "Dr. Tasseli McKay", conference: "2026-montgomery", minutes: 15, home: true },
   { id: "TZ7c2EPL-sc", title: "We Know Their Names", speaker: "Dr. Joan Wynne", conference: "2026-montgomery", minutes: 3 },
   { id: "nAq_YLNRYP8", title: "Faith Communities Must Testify in the Age of Mass Incarceration", speaker: "Dr. Terrance L. \"Kojo\" Johnson", conference: "2026-montgomery", minutes: 24, home: true },
   { id: "Dzzggsx94bg", title: "Jim Crow: The Zipper That Kept the Country Together", speaker: "Dr. Janet Moses", conference: "2026-montgomery", minutes: 4 },
@@ -49,7 +49,7 @@ export const videos: Video[] = [
   { id: "CgR4Q4f2akE", title: "Opening Remarks", speaker: "Dr. Janet Moses", conference: "2024", minutes: 14 },
   { id: "JPvSZLiLj9Q", title: "Principles of Reconstruction", speaker: "Dr. Kirsten Mullen", conference: "2024", minutes: 75 },
   { id: "dGZZUWDSfDY", title: "LBJ, Atlantic City and The Taming of The Civil Rights Movement", speaker: "Dr. Julian E. Zelizer", conference: "2024", minutes: 61 },
-  { id: "aQaDmw1vkPE", title: "Mass Incarceration: The Social Control of “Disposable” Communities", speaker: "Dr. Elizabeth Hinton", conference: "2024", minutes: 60 },
+  { id: "aQaDmw1vkPE", title: "Mass Incarceration: The Social Control of “Disposable” Communities", speaker: "Dr. Elizabeth Hinton", conference: "2024", minutes: 60, home: true },
   { id: "4hLUVog5Wzg", title: "The Carceral Merry Go Round", speaker: "Dr. Laura Kurgan", conference: "2024", minutes: 56 },
   { id: "GAZz_XHTZ1Q", title: "Invocation", speaker: "2Truth", conference: "2024", minutes: 18 },
   { id: "Tg0-uTuU7PQ", title: "The Jim Crow Roots of Police Violence", speaker: "Dr. Margaret Burnham", conference: "2024", minutes: 48 },
@@ -64,7 +64,7 @@ export const videos: Video[] = [
   { id: "ortYFJfLFck", title: "Lecture I: Lecture and Moderated Q&A", speaker: "Dr. Nicholas Lemann", conference: "2022", minutes: 68 },
   { id: "418n-my8Erk", title: "Lecture II: Lecture and Moderated Q&A", speaker: "Dean James Anderson", conference: "2022", minutes: 58 },
   { id: "PNtBKalhd6M", title: "Lecture III: Lecture and Moderated Q&A", speaker: "Dr. Jarvis Givens", conference: "2022", minutes: 59 },
-  { id: "iNena5uFLUk", title: "Lecture IV: Lecture and Moderated Q&A", speaker: "Dr. Imani Perry", conference: "2022", minutes: 61 },
+  { id: "iNena5uFLUk", title: "Lecture IV: Lecture and Moderated Q&A", speaker: "Dr. Imani Perry", conference: "2022", minutes: 61, home: true },
 ];
 
 export const videosFor = (c: ConferenceKey) => videos.filter((v) => v.conference === c);

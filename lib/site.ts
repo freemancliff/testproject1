@@ -6,7 +6,6 @@ export const SITE = {
   location: "Montgomery, Alabama",
   venue: "Equal Justice Initiative Legacy Sites",
   shareUrl: "https://www.bobmosesfund.org/thebobmosesconference",
-  agendaUrl: "https://bobmosesconference.com/bmc2026",
   donateUrl: "https://cambridge.fcsuite.com/erp/donate/create/fund?funit_id=1627",
   hotelUrl:
     "https://be.synxis.com/?adult=1&arrive=2026-10-02&chain=10237&child=0&currency=USD&depart=2026-10-04&group=261002BMLC&hotel=48509&level=hotel&locale=en-US&productcurrency=USD&rooms=1",

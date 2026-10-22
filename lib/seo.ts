@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { mit2026 } from "./mit2026";
 
-// The public web address. Change here (or set NEXT_PUBLIC_SITE_URL in Vercel) if the domain changes.
+// The public web address (the primary domain in Vercel; the non-www address redirects here).
+// Change here (or set NEXT_PUBLIC_SITE_URL in Vercel) if the primary domain changes.
 // It is used for the canonical links, sitemap and share previews.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bobmosesconference.com";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.bobmosesconference.com";
 export const SITE_NAME = "Bob Moses Legacy Conference";
 
 // Picture shown when a link is shared (texts, Facebook, LinkedIn, Slack, etc.). 1200x630.
