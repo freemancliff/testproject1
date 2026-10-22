@@ -9,6 +9,8 @@ import MitRegisterButton from "@/components/MitRegisterButton";
 import SponsorGrid from "@/components/SponsorGrid";
 import MacArthurBand from "@/components/MacArthurBand";
 import CreditedPhoto from "@/components/CreditedPhoto";
+import YouTubeEmbed from "@/components/YouTubeEmbed";
+import { videos } from "@/lib/videos";
 import PhotoGallery from "@/components/PhotoGallery";
 import { findMedia } from "@/lib/media";
 import { archivePhotos } from "@/lib/archive-photos";
@@ -24,6 +26,9 @@ const isFeature = (t: string) => /^(screening|macarthur|keynote)/i.test(t);
 
 export default function Mit2026Page() {
   const heroIsDropped = !!findMedia("mit/hero", "any");
+  const promoDropped = !!findMedia("mit/promo-video", "video");
+  // Promo video: "Jim Crow: The Zipper That Kept the Country Together" (Part I). A file at public/media/mit/promo-video.* replaces it.
+  const promo = videos.find((v) => v.id === "Dzzggsx94bg")!;
   const gallery2023 = ["03", "08", "04", "05"].map((n) => archivePhotos["2023"].find((p) => p.src.endsWith(`/${n}.jpg`))!);
   return (
     <>
@@ -121,7 +126,19 @@ export default function Mit2026Page() {
 
       <section className="section section--dark" aria-label="Conference video and venue">
         <div className="container split">
-          <MediaSlot base="mit/promo-video" kind="video" label="Promo or invitation video for Part II" aspect="16/9" />
+          {promoDropped ? (
+            <MediaSlot base="mit/promo-video" kind="video" label="Promo or invitation video for Part II" aspect="16/9" />
+          ) : (
+            <div className="video-card video-card--big">
+              <div className="media" style={{ aspectRatio: "16/9" }}>
+                <YouTubeEmbed id={promo.id} title={promo.title} />
+              </div>
+              <div className="video-meta">
+                <div className="video-year">From Part I · Montgomery</div>
+                <h3>{promo.title}</h3>
+              </div>
+            </div>
+          )}
           <MediaSlot base="mit/venue" label="Venue photo: Wong Auditorium, Tang Center" aspect="16/9" fallback={mitAerial} position="center 40%" />
         </div>
       </section>

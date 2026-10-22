@@ -273,8 +273,8 @@ h1,h2,h3,h4 { font-family:var(--display); font-weight:700; text-transform:upperc
    ══════════════════════════════════════════ */
 .mac-band { background:#7560A8; color:var(--black); padding-block:clamp(40px,6vw,72px); }
 .mac-band .container { display:grid; grid-template-columns:auto 1fr; gap:clamp(24px,5vw,64px); align-items:center; }
-.mac-logos { display:flex; flex-direction:column; gap:20px; }
-.mac-logos img { height:64px; width:auto; filter:invert(1); mix-blend-mode:screen; }
+.mac-logos { display:flex; flex-direction:column; align-items:flex-start; gap:20px; }
+.mac-logos img { height:64px; width:auto; max-width:100%; flex:none; object-fit:contain; filter:invert(1); mix-blend-mode:screen; }
 .mac-tagline { font-family:var(--serif); font-size:clamp(1.4rem,2.6vw,2rem); font-weight:700; text-transform:none; margin-bottom:10px; }
 .mac-band p { font-size:1.05rem; line-height:1.7; max-width:68ch; }
 .mac-band a { color:var(--black); font-weight:700; }
