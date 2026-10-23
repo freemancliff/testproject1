@@ -18,6 +18,7 @@ export type Book = {
   url?: string;               // any other store / publisher page
   featured?: boolean;         // pinned to the top of every list (the Moses family books)
   note?: string;              // short line under the author, e.g. "Forthcoming December 2026"
+  people?: string[];          // people to link to this book (only needed when `author` is not a plain list of names)
 };
 
 const books: Book[] = [
@@ -26,13 +27,15 @@ const books: Book[] = [
   { slug: "the-white-peril", title: "The White Peril", subtitle: "A Family Memoir", author: "Omo Moses", category: "Race, Law & Voting", years: [], asin: "0807021520", featured: true },
 
   // ── Mass Incarceration & Policing ──
+  { slug: "halfway-home", title: "Halfway Home", subtitle: "Race, Punishment, and the Afterlife of Mass Incarceration", author: "Reuben Jonathan Miller", category: "Mass Incarceration & Policing", years: [], asin: "0316451487" },
+  { slug: "just-mercy", title: "Just Mercy", subtitle: "A Story of Justice and Redemption", author: "Bryan Stevenson", category: "Mass Incarceration & Policing", years: [], asin: "081298496X" },
   { slug: "the-new-jim-crow", title: "The New Jim Crow", subtitle: "Mass Incarceration in the Age of Colorblindness", author: "Michelle Alexander", category: "Mass Incarceration & Policing", years: [2023, 2024], asin: "1620971933" },
   { slug: "america-on-fire", title: "America on Fire", subtitle: "The Untold History of Policing and Protest", author: "Elizabeth Hinton", category: "Mass Incarceration & Policing", years: [2024], url: "https://wwnorton.com/books/america-on-fire" },
   { slug: "from-the-war-on-poverty-to-the-war-on-crime", title: "From the War on Poverty to the War on Crime", author: "Elizabeth Hinton", category: "Mass Incarceration & Policing", years: [2024], url: "https://www.hup.harvard.edu/books/9780674979826" },
   { slug: "locking-up-our-own", title: "Locking Up Our Own", subtitle: "Crime and Punishment in Black America", author: "James Forman Jr.", category: "Mass Incarceration & Policing", years: [2023, 2024], url: "https://www.barnesandnoble.com/w/locking-up-our-own-james-forman/1123909577?ean=9780374712907" },
   { slug: "city-of-inmates", title: "City of Inmates", subtitle: "Conquest, Rebellion, and the Rise of Human Caging in Los Angeles, 1771–1965", author: "Kelly Lytle Hernández", category: "Mass Incarceration & Policing", years: [2023, 2024], asin: "1469659190" },
   { slug: "holding-on", title: "Holding On", subtitle: "Family and Fatherhood during Incarceration and Reentry", author: "Tasseli McKay", category: "Mass Incarceration & Policing", years: [2024], url: "https://www.ucpress.edu/book/9780520305250/holding-on" },
-  { slug: "the-growth-of-incarceration-in-the-united-states", title: "The Growth of Incarceration in the United States", subtitle: "Exploring Causes and Consequences", author: "National Research Council (Khalil Gibran Muhammad, contributor)", category: "Mass Incarceration & Policing", years: [2023], url: "https://www.thriftbooks.com/w/the-growth-of-incarceration-in-the-united-states-exploring-causes-and-consequences_national-research-council_committee-on-law-and-justice/13617135/item/18992364/" },
+  { slug: "the-growth-of-incarceration-in-the-united-states", title: "The Growth of Incarceration in the United States", subtitle: "Exploring Causes and Consequences", author: "National Research Council (Khalil Gibran Muhammad, contributor)", people: ["Khalil Gibran Muhammad"], category: "Mass Incarceration & Policing", years: [2023], url: "https://www.thriftbooks.com/w/the-growth-of-incarceration-in-the-united-states-exploring-causes-and-consequences_national-research-council_committee-on-law-and-justice/13617135/item/18992364/" },
   { slug: "the-geographies-of-threat", title: "The Geographies of Threat and the Production of Violence", author: "Rasul A. Mowatt", category: "Mass Incarceration & Policing", years: [2023, 2024], asin: "B09G5KW6JT" },
   { slug: "the-condemnation-of-blackness", title: "The Condemnation of Blackness", subtitle: "Race, Crime, and the Making of Modern Urban America", author: "Khalil Gibran Muhammad", category: "Mass Incarceration & Policing", years: [2023, 2024], asin: "0674238141" },
   { slug: "stolen-wealth-hidden-power", title: "Stolen Wealth, Hidden Power", subtitle: "The Case for Reparations for Mass Incarceration", author: "Tasseli McKay", category: "Mass Incarceration & Policing", years: [2024], url: "https://www.ucpress.edu/book/9780520389465/stolen-wealth-hidden-power" },
@@ -40,7 +43,7 @@ const books: Book[] = [
   // ── Reparations & Wealth ──
   { slug: "from-here-to-equality", title: "From Here to Equality", subtitle: "Reparations for Black Americans in the Twenty-First Century (Second Edition)", author: "William A. Darity Jr. and A. Kirsten Mullen", category: "Reparations & Wealth", years: [2023, 2024], url: "https://uncpress.org/book/9781469671208/from-here-to-equality-second-edition/" },
   { slug: "the-black-reparations-project", title: "The Black Reparations Project", subtitle: "A Handbook for Racial Justice", author: "William A. Darity Jr.", category: "Reparations & Wealth", years: [2024], url: "https://www.ucpress.edu/book/9780520383814/the-black-reparations-project" },
-  { slug: "the-color-of-wealth", title: "The Color of Wealth", subtitle: "The Story Behind the U.S. Racial Wealth Divide", author: "Bárbara Robles and co-authors", category: "Reparations & Wealth", years: [2023], asin: "1595580042" },
+  { slug: "the-color-of-wealth", title: "The Color of Wealth", subtitle: "The Story Behind the U.S. Racial Wealth Divide", author: "Bárbara Robles and co-authors", people: ["Bárbara Robles"], category: "Reparations & Wealth", years: [2023], asin: "1595580042" },
 
   // ── History & Reconstruction ──
   { slug: "slavery-by-another-name", title: "Slavery by Another Name", subtitle: "The Re-Enslavement of Black Americans from the Civil War to World War II", author: "Douglas A. Blackmon", category: "History & Reconstruction", years: [2023, 2024], asin: "0385722702" },
@@ -54,6 +57,9 @@ const books: Book[] = [
   { slug: "reckoning-with-our-roots", title: "Reckoning with Our Roots", subtitle: "Unearthing Injustice to Find Our Way Home", author: "Joan T. Wynne", category: "History & Reconstruction", years: [2023], asin: "1524977756" },
 
   // ── Race, Law & Voting ──
+  { slug: "shattered-dreams-infinite-hope", title: "Shattered Dreams, Infinite Hope", subtitle: "A Tragic Vision of the Civil Rights Movement", author: "Brandon M. Terry", category: "Race, Law & Voting", years: [], asin: "0674271289" },
+  { slug: "imagination-a-manifesto", title: "Imagination", subtitle: "A Manifesto", author: "Ruha Benjamin", category: "Race, Law & Voting", years: [], asin: "B0C97HJHWG" },
+  { slug: "viral-justice", title: "Viral Justice", subtitle: "How We Grow the World We Want", author: "Ruha Benjamin", category: "Race, Law & Voting", years: [], asin: "0691224935" },
   { slug: "caste", title: "Caste", subtitle: "The Origins of Our Discontents", author: "Isabel Wilkerson", category: "Race, Law & Voting", years: [2023, 2024], asin: "0593230256" },
   { slug: "faces-at-the-bottom-of-the-well", title: "Faces at the Bottom of the Well", subtitle: "The Permanence of Racism", author: "Derrick Bell", category: "Race, Law & Voting", years: [2023], asin: "1541645537" },
   { slug: "keeping-faith-with-the-constitution", title: "Keeping Faith with the Constitution", author: "Goodwin Liu, Pamela S. Karlan, and Christopher H. Schroeder", category: "Race, Law & Voting", years: [2023, 2024], url: "https://www.barnesandnoble.com/w/keeping-faith-with-the-constitution-goodwin-liu/1103373843?ean=9780199752836" },
@@ -61,7 +67,7 @@ const books: Book[] = [
 
   // ── Education ──
   { slug: "a-born-teacher", title: "A Born Teacher", subtitle: "The Making of a Black Community School in Texas", author: "Avis Ann Mullen and Kirsten Mullen", category: "Education", years: [], url: "https://www.ttupress.org/9781682833216/a-born-teacher/", note: "Forthcoming, December 2026" },
-  { slug: "quality-education-as-a-constitutional-right", title: "Quality Education as a Constitutional Right", subtitle: "Creating a Grassroots Movement to Transform Public Schools", author: "Robert P. Moses, Ernesto Cortés Jr., Lisa Delpit, Theresa Perry, and others", category: "Education", years: [], asin: "0807032824" },
+  { slug: "quality-education-as-a-constitutional-right", title: "Quality Education as a Constitutional Right", subtitle: "Creating a Grassroots Movement to Transform Public Schools", author: "Robert P. Moses, Ernesto Cortés Jr., Lisa Delpit, Theresa Perry, and others", people: ["Robert P. Moses", "Ernesto Cortés Jr.", "Lisa Delpit", "Theresa Perry"], category: "Education", years: [], asin: "0807032824" },
   { slug: "punished-for-dreaming", title: "Punished for Dreaming", subtitle: "How School Reform Harms Black Children and How We Heal", author: "Bettina Love", category: "Education", years: [2024] },
   { slug: "we-want-to-do-more-than-survive", title: "We Want to Do More Than Survive", subtitle: "Abolitionist Teaching and the Pursuit of Educational Freedom", author: "Bettina Love", category: "Education", years: [2024] },
   { slug: "the-education-of-blacks-in-the-south", title: "The Education of Blacks in the South, 1860–1935", author: "James D. Anderson", category: "Education", years: [2023, 2024], asin: "0807842214" },

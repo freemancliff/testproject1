@@ -8,6 +8,8 @@ import Avatar from "@/components/Avatar";
 import MitRegisterButton from "@/components/MitRegisterButton";
 import SponsorGrid from "@/components/SponsorGrid";
 import MacArthurBand from "@/components/MacArthurBand";
+import BookLink from "@/components/BookLink";
+import SpeakerBooks from "@/components/SpeakerBooks";
 import CreditedPhoto from "@/components/CreditedPhoto";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import { videos } from "@/lib/videos";
@@ -214,6 +216,8 @@ export default function Mit2026Page() {
         </div>
       </section>
 
+      <SpeakerBooks names={featuredPeople.map((p) => p.name)} max={6} />
+
       <section
         className="section section--dark"
         aria-label="Conference video and venue"
@@ -264,6 +268,7 @@ export default function Mit2026Page() {
                 <Avatar name={p.name} slug={p.slug} photo={p.photo} />
                 <div className="person-name">{p.name}</div>
                 {p.title && <div className="person-role">{p.title}</div>}
+                <div className="person-books"><BookLink name={p.name} /></div>
               </div>
             ))}
           </div>

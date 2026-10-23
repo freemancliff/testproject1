@@ -1,27 +1,48 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AFFILIATE_DISCLOSURE } from "@/lib/affiliate";
 
 export type ShelfBook = {
   slug: string; title: string; subtitle?: string; author: string; category: string;
-  years: number[]; href: string; store: string; cover?: string; featured?: boolean; note?: string;
+  years: number[]; href: string; store: string; cover?: string; featured?: boolean; note?: string; people: string[];
 };
 
 // The book shelf: filter by topic, search by title or author. Links open the store in a new tab.
-export default function BookGrid({ books, categories }: { books: ShelfBook[]; categories: string[] }) {
+export default function BookGrid({ books, categories, peopleNames }: { books: ShelfBook[]; categories: string[]; peopleNames: Record<string, string> }) {
   const [cat, setCat] = useState<string>("All");
   const [q, setQ] = useState("");
+  const [by, setBy] = useState<string | null>(null);
+
+  // A link like /bookstore?by=kirsten-mullen shows just that person's books.
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    const person = p.get("by");
+    if (person && peopleNames[person]) setBy(person);
+    const search = p.get("q");
+    if (search) setQ(search);
+  }, [peopleNames]);
+
+  const clearBy = () => {
+    setBy(null);
+    window.history.replaceState(null, "", window.location.pathname + "#books");
+  };
 
   const shown = useMemo(() => {
     const n = q.trim().toLowerCase();
-    return books.filter((b) => (cat === "All" || b.category === cat) &&
+    return books.filter((b) => (!by || b.people.includes(by)) && (cat === "All" || b.category === cat) &&
       (!n || `${b.title} ${b.subtitle ?? ""} ${b.author}`.toLowerCase().includes(n)));
-  }, [books, cat, q]);
+  }, [books, cat, q, by]);
 
   return (
     <>
+      {by && (
+        <p className="shelf-by" role="status">
+          Showing books by <strong>{peopleNames[by]}</strong>
+          <button type="button" onClick={clearBy}>Show all books</button>
+        </p>
+      )}
       <div className="shelf-controls">
         <div className="chips" role="group" aria-label="Filter by topic">
           {["All", ...categories].map((c) => (
@@ -39,7 +60,7 @@ export default function BookGrid({ books, categories }: { books: ShelfBook[]; ca
       ) : (
         <ul className="book-grid">
           {shown.map((b) => (
-            <li className={`book ${b.featured ? "book--featured" : ""}`.trim()} key={b.slug}>
+            <li id={`book-${b.slug}`} className={`book ${b.featured ? "book--featured" : ""}`.trim()} key={b.slug}>
               <div className="book-info">
                 {b.featured && <div className="book-flag">By the Moses family</div>}
                 <div className="book-cat">{b.category}</div>

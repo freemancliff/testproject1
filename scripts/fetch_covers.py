@@ -96,6 +96,11 @@ BOOKS = {
  "we-want-to-do-more-than-survive": ([], "We Want to Do More Than Survive Bettina Love", None),
  "the-education-of-blacks-in-the-south": (["0807842214", "9780807842218"], "The Education of Blacks in the South 1860-1935 James Anderson", None),
  "radical-equations-clean": ([], "Radical Equations Moses Cobb", None),   # hand-picked clean cover (no store stickers)
+ "imagination-a-manifesto": ([], "Imagination A Manifesto Ruha Benjamin", None),
+ "viral-justice": ([], "Viral Justice Ruha Benjamin", None),
+ "halfway-home": (["9780316451482"], "Halfway Home Reuben Jonathan Miller", None),
+ "shattered-dreams-infinite-hope": (["9780674271289"], "Shattered Dreams Infinite Hope Brandon Terry", None),
+ "just-mercy": (["9780812984965"], "Just Mercy Bryan Stevenson", None),
  "the-white-peril": ([], "The White Peril Omo Moses", None),
  "a-born-teacher": ([], "A Born Teacher Mullen", None),            # Texas Tech University Press cover (imgix) added by hand                   # publisher cover
  "quality-education-as-a-constitutional-right": ([], "Quality Education Constitutional Right", None),

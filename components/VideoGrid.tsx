@@ -2,6 +2,7 @@ import { SITE } from "@/lib/site";
 import type { Video } from "@/lib/videos";
 import MediaSlot from "./MediaSlot";
 import YouTubeEmbed from "./YouTubeEmbed";
+import BookLink from "./BookLink";
 
 function Player({ v }: { v: Video }) {
   return (
@@ -10,7 +11,7 @@ function Player({ v }: { v: Video }) {
         <YouTubeEmbed id={v.id} title={v.title} />
       </div>
       <div className="video-meta">
-        {v.speaker && <div className="video-year">{v.speaker}{v.minutes ? ` · ${v.minutes} min` : ""}</div>}
+        {v.speaker && <div className="video-year">{v.speaker}{v.minutes ? ` · ${v.minutes} min` : ""}<BookLink name={v.speaker} variant="icon" /></div>}
         <h3>{v.title}</h3>
       </div>
     </div>

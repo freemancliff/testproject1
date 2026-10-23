@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { SITE } from "@/lib/site";
+import SiteSearch from "./SiteSearch";
 
 const LINKS = [
   { href: "/2026mit", label: "2026 Part II · MIT" },
@@ -34,8 +35,11 @@ export default function SiteHeader() {
               {l.label}
             </Link>
           ))}
+          <SiteSearch menuRow onOpen={() => setOpen(false)} />
           <a className="btn btn--primary btn--sm nav-cta" href={SITE.donateUrl} target="_blank" rel="noreferrer">Donate</a>
         </nav>
+
+        <SiteSearch />
 
         <button type="button" className="nav-toggle" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen((o) => !o)}>
           {open ? <XMarkIcon /> : <Bars3Icon />}

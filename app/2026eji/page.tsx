@@ -13,6 +13,8 @@ import CreditedPhoto from "@/components/CreditedPhoto";
 import PhotoGallery from "@/components/PhotoGallery";
 import { pageMeta } from "@/lib/seo";
 import MacArthurBand from "@/components/MacArthurBand";
+import BookLink from "@/components/BookLink";
+import SpeakerBooks from "@/components/SpeakerBooks";
 import MitRegisterButton from "@/components/MitRegisterButton";
 import VideoGrid from "@/components/VideoGrid";
 import { videosFor, PLAYLISTS } from "@/lib/videos";
@@ -41,6 +43,7 @@ function Person({ name, lines, photo, initials, gradient, role }: { name: string
         {role}
         {lines?.map((line, i) => <span key={i}>{i > 0 && <br />}{line}</span>)}
       </div>
+      <div className="person-books"><BookLink name={name} /></div>
     </div>
   );
 }
@@ -137,6 +140,8 @@ export default function ConferencePage() {
           </div>
         </div>
       </section>
+
+      <SpeakerBooks names={[...saturdayFellows, ...sundayFeatured].map((x) => x.name).concat(participants.map((x) => x.name))} max={8} />
 
       {videosFor("2026-montgomery").length > 0 && (
         <section className="section section--dark" id="sessions" aria-labelledby="sessions-title">

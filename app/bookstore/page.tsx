@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { catalog, categories, resources } from "@/lib/books";
+import { bookAuthorName, personKeys } from "@/lib/people";
 import { AMAZON_TAG, shopUrl, storeName } from "@/lib/affiliate";
 import { findMedia } from "@/lib/media";
 import { pageMeta } from "@/lib/seo";
@@ -16,7 +17,7 @@ export default function BookstorePage() {
   const shelf: ShelfBook[] = catalog.map((b) => {
     const href = shopUrl(b.link);
     return {
-      slug: b.slug, title: b.title, subtitle: b.subtitle, author: b.author, category: b.category, years: b.years, featured: !!b.featured, note: b.note,
+      slug: b.slug, title: b.title, subtitle: b.subtitle, author: b.author, category: b.category, years: b.years, featured: !!b.featured, note: b.note, people: personKeys(b),
       href, store: storeName(href), cover: findMedia(`books/${b.slug}`, "image")?.url,
     };
   });
@@ -37,7 +38,7 @@ export default function BookstorePage() {
 
       <section className="section section--black" id="books">
         <div className="container">
-          <BookGrid books={shelf} categories={categories} />
+          <BookGrid books={shelf} categories={categories} peopleNames={Object.fromEntries(shelf.flatMap((b) => b.people).map((k) => [k, bookAuthorName(k) ?? k]))} />
         </div>
       </section>
 

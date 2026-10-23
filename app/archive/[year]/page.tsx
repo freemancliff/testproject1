@@ -7,6 +7,9 @@ import MediaSlot from "@/components/MediaSlot";
 import VideoGrid from "@/components/VideoGrid";
 import PhotoGallery from "@/components/PhotoGallery";
 import ComingSoon from "@/components/ComingSoon";
+import BookLink from "@/components/BookLink";
+import SpeakerBooks from "@/components/SpeakerBooks";
+import { personKey } from "@/lib/people";
 import { archivePhotos } from "@/lib/archive-photos";
 import { PLAYLISTS, videosFor, type ConferenceKey } from "@/lib/videos";
 import { pageMeta } from "@/lib/seo";
@@ -37,6 +40,11 @@ export default async function ArchivePage({ params }: { params: Promise<Params> 
   if (idx < 0) notFound();
   const a = archives[idx];
   const talks = videosFor(a.year as ConferenceKey);
+  const seen = new Set<string>(); // people who already got a Book icon in the schedule
+  // everyone named in the schedule: they get their icon there, so the speaker list below skips them
+  const inSchedule = new Set(
+    a.days.flatMap((d) => d.items.flatMap((it) => [...it.text.matchAll(/\*\*([^*]+)\*\*/g)].map((x) => personKey(x[1]) ?? ""))),
+  );
   const photos = archivePhotos[a.year] ?? [];
   const newer = archives[idx - 1];
   const older = archives[idx + 1];
@@ -72,7 +80,7 @@ export default async function ArchivePage({ params }: { params: Promise<Params> 
                   {d.items.map((it, i) => (
                     <li key={i}>
                       <div className="time">{it.time || "·"}</div>
-                      <div className="what"><RichText text={it.text} /></div>
+                      <div className="what"><RichText text={it.text} books seen={seen} /></div>
                     </li>
                   ))}
                 </ol>
@@ -81,6 +89,14 @@ export default async function ArchivePage({ params }: { params: Promise<Params> 
           </div>
         </div>
       </section>
+
+      <SpeakerBooks
+        names={[
+          ...a.days.flatMap((d) => d.items.flatMap((it) => [...it.text.matchAll(/\*\*([^*]+)\*\*/g)].map((x) => x[1]))),
+          ...a.speakers,
+        ]}
+        max={6}
+      />
 
       {talks.length > 0 ? (
         <section className="section section--dark" id="talks">
@@ -142,7 +158,7 @@ export default async function ArchivePage({ params }: { params: Promise<Params> 
             <h2>Speakers</h2>
           </div>
           <div className="chips">
-            {a.speakers.map((s) => <div className="chip" key={s} style={{ background: "var(--black)", color: "var(--white)" }}>{s}</div>)}
+            {a.speakers.map((s) => <div className="chip" key={s} style={{ background: "var(--black)", color: "var(--white)" }}>{s}{!inSchedule.has(personKey(s) ?? "") && <BookLink name={s} variant="icon" />}</div>)}
           </div>
         </div>
       </section>
